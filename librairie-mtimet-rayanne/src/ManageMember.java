@@ -242,33 +242,61 @@ public class ManageMember extends JFrame {
             return;
         }
 
-        if (!MemberAvailabe(nom, prenom)) {
-            JOptionPane.showMessageDialog(this, "Cet adhérent n'existe pas.", "Une erreur est survenue.", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        // if (!MemberAvailabe(nom, prenom)) {
+        //     JOptionPane.showMessageDialog(this, "Cet adhérent n'existe pas.", "Une erreur est survenue.", JOptionPane.ERROR_MESSAGE);
+        //     return;
+        // }
 
-        int option = JOptionPane.showConfirmDialog(this, "Êtes-vous sûr de vouloir modifier les données de cet adhérent ?", "Confirmation de modification", JOptionPane.YES_NO_OPTION);
+        // int option = JOptionPane.showConfirmDialog(this, "Êtes-vous sûr de vouloir modifier les données de cet adhérent ?", "Confirmation de modification", JOptionPane.YES_NO_OPTION);
+        // if (option == JOptionPane.YES_OPTION) {
+        //     try {
+        //         Class.forName("com.mysql.jdbc.Driver");
+        //         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bibliotheque-mtimet-rayanne", "root", "root");
+
+        //         PreparedStatement updateStmt = con.prepareStatement("UPDATE adherent SET email = ? WHERE nom = ? AND prenom = ?");
+        //         updateStmt.setString(1, email);
+        //         updateStmt.setString(2, nom);
+        //         updateStmt.setString(3, prenom);
+        //         int rowsAffected = updateStmt.executeUpdate();
+
+        //         if (rowsAffected > 0) {
+        //             JOptionPane.showMessageDialog(this, "Adhérent modifié avec succès.");
+        //         } else {
+        //             JOptionPane.showMessageDialog(this, "Aucun adhérent trouvé avec ces informations.", "Une erreur est survenue.", JOptionPane.ERROR_MESSAGE);
+        //         }
+
+        //         con.close();
+        //     } catch (Exception ex) {
+        //         JOptionPane.showMessageDialog(this, "Une erreur est survenue : " + ex.getMessage(), "Une erreur est survenue.", JOptionPane.ERROR_MESSAGE);
+        //     }
+
+
+        
+        int option = JOptionPane.showConfirmDialog(this, "Êtes-vous sûr de vouloir modifier cet adhérent ?", "Confirmation de modification", JOptionPane.YES_NO_OPTION);
         if (option == JOptionPane.YES_OPTION) {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bibliotheque-mtimet-rayanne", "root", "root");
 
-                PreparedStatement updateStmt = con.prepareStatement("UPDATE adherent SET email = ? WHERE nom = ? AND prenom = ?");
-                updateStmt.setString(1, email);
-                updateStmt.setString(2, nom);
-                updateStmt.setString(3, prenom);
+                PreparedStatement updateStmt = con.prepareStatement("UPDATE adherent SET nom = ?, prenom = ?, email = ? WHERE nom = ? AND prenom = ?");
+                updateStmt.setString(1, nom);
+                updateStmt.setString(2, prenom);
+                updateStmt.setString(3, email);
+                updateStmt.setString(4, MemberCombo.getSelectedItem().toString().split(" ")[0]);
+                updateStmt.setString(5, MemberCombo.getSelectedItem().toString().split(" ")[1]);
                 int rowsAffected = updateStmt.executeUpdate();
 
                 if (rowsAffected > 0) {
-                    JOptionPane.showMessageDialog(this, "Adhérent modifié avec succès.");
+                    JOptionPane.showMessageDialog(this, "Adhérent mis à jour avec succès.");
                 } else {
-                    JOptionPane.showMessageDialog(this, "Aucun adhérent trouvé avec ces informations.", "Une erreur est survenue.", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Aucun adhérent trouvé avec ces informations.", "Erreur", JOptionPane.ERROR_MESSAGE);
                 }
 
                 con.close();
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "Une erreur est survenue : " + ex.getMessage(), "Une erreur est survenue.", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Erreur: " + ex.getMessage(), "Erreur", JOptionPane.ERROR_MESSAGE);
             }
+
         }
     }
 
