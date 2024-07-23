@@ -1,23 +1,23 @@
-**AP2** est un logiciel permettant d'automatiser le processus d'emprunt et de retour des livres dans la bibliothèque municipale, en enregistrant les transactions effectuées via une borne automatique, pour améliorer l'efficacité et réduire la charge de travail des bibliothécaires.
+AP2 est un logiciel permettant d'automatiser le processus d'emprunt et de retour des livres dans la bibliothèque municipale, en enregistrant les transactions effectuées via une borne automatique, pour améliorer l'efficacité et réduire la charge de travail des bibliothécaires.
 
 
-**Scénario**
+## Scénario
 > La bibliothèque municipale actuelle gère manuellement le processus d'emprunt et de retour des livres par ses adhérents. Pour améliorer l'efficacité et réduire la charge de travail des bibliothécaires, la direction a décidé d'acquérir une borne automatique permettant aux adhérents de retirer ou de déposer des livres sans l'assistance du personnel. Cependant, la borne est livrée sans logiciel adéquat pour enregistrer les transactions. Vous et votre équipe avez pour mission de proposer une solution temporaire qui répondra à la demande du client.
 
 
-**Objectifs**
+## Objectifs
 - Permettre la gestion des données de la bibliothèque via le logiciel
 - Utiliser une base de données relationnelle pour stocker les informations
 - Faciliter la gestion et la mise à jour des informations grâce à la base de données
 - Assurer que les données peuvent être gérées directement depuis le logiciel
 
 
-**Technologies**
+## Technologies
 - Java
 - SQL
 
 
-**Résultat**
+## Résultat
 <img width="1440" alt="AP2 (Page d'accueil)" src="https://github.com/Rayanne92/librairie2024/assets/103422010/9de6d95c-7212-4d25-a6c2-3c520721fb0e">
 <img width="1440" alt="AP2 (Gestion des livres)" src="https://github.com/Rayanne92/librairie2024/assets/103422010/ee2ae514-3ccc-4b90-8cf4-823b946da499">
 <img width="1440" alt="AP2 (Gestion des auteurs)" src="https://github.com/Rayanne92/librairie2024/assets/103422010/d006cb0d-ee92-42d5-9e8d-84c1138dece4">
